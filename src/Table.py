@@ -50,10 +50,3 @@ class Workbook1:
             cell_colour(basic_value = basic_value, value = rate_cell.value, cell = rate_cell)
         self.workbook.save(filename = "CurrencyData.xlsx")
 
-
-x = Workbook1()
-x.title("Last week's currency reports")
-x.currency_report('EUR', 3, 2)
-x.currency_report('USD', 3, 11)
-x.currency_report('GBP', 7, 2)
-x.currency_report('CHF', 7, 11)

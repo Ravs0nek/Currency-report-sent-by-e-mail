@@ -26,6 +26,4 @@ class CurrencyData:
                 break
         converted_days = [week_days[i][5:] for i in range(len(week_days))]
         return rates, converted_days
-    
-print(CurrencyData.exchange_rate_api(days()[0], days()[-1], 'USD'))
-print(CurrencyData.week_exchange_rate(CurrencyData.exchange_rate_api(days()[0], days()[-1], 'USD')))
+
