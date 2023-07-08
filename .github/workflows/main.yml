@@ -24,7 +24,10 @@ jobs:
         run: python ./src/main.py
         
       - name: commit and push
-        uses: stefanzweifel/git-auto-commit-action@v4
-      - name: push
-        run: git push
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "automated currency data"
+          git push
     
