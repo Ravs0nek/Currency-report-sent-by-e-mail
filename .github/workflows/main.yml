@@ -8,11 +8,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - name: checkout repo content
+        uses: actions/checkout@v2
+
+      - name: setup ython
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.9
-      - name: send email
+          python-version: '3.9.10'
+          
+      - name: install python packages
         run: |
-          python main.py
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: execute python script
+        run: python main.py
+        
+      - name: commit and push
+          git config --global user.name 'Github Action'
+          git config --global user.email 'action@github.com'
+          git commit -am "Automated currency report"
+          git push
     
