@@ -21,6 +21,10 @@ jobs:
           pip install -r requirements.txt
           
       - name: execute python script
+        env:
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+          RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: python ./src/main.py
         
       - name: commit and push
