@@ -5,7 +5,7 @@ from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-def sending_email():
+def sending_email() -> None:
     subject = "Currency rates"
     body = "The following exchange rates have been placed in the file: EUR/PLN, USD/PLN, GBP/PLN, CHF/PLN"
     sender_email = os.environ['SENDER_EMAIL']

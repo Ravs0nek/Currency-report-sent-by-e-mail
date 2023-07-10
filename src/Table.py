@@ -6,12 +6,12 @@ from SecondaryFunctions import cell_colour, days
 
 class ExcelFile:
     
-    def __init__(self):
+    def __init__(self) -> None:
         self.workbook = Workbook()
         self.sheet = self.workbook.active
         
 
-    def title(self,title):
+    def title(self, title: str) -> None:
         self.sheet.merge_cells(start_row=1, start_column=1, end_row=1, end_column=18)
         cell = self.sheet.cell(row=1, column=1)
         cell.alignment = Alignment(horizontal="center")
@@ -25,7 +25,7 @@ class ExcelFile:
                      bottom=Side(style='thick'))
         self.workbook.save(filename = "CurrencyData.xlsx")
 
-    def currency_report(self, currency, starting_row, starting_column):
+    def currency_report(self, currency: str, starting_row: int, starting_column: int) -> None:
         currency_data = cd.week_exchange_rate(exchange_rates=cd.exchange_rate_api(currency=currency))
         rates, dates = currency_data[0], currency_data[1]
         basic_value = rates[0]

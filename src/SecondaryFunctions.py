@@ -1,7 +1,7 @@
 from openpyxl.styles import PatternFill
 from datetime import datetime, timedelta
 
-def cell_colour(basic_value: int, value: int, cell):
+def cell_colour(basic_value: int, value: int, cell) -> None:
     green_fill_cell = PatternFill(patternType='solid', 
                            fgColor='35FC03')
     red_fill_cell = PatternFill(patternType='solid', 
@@ -13,7 +13,7 @@ def cell_colour(basic_value: int, value: int, cell):
     else:
         pass
 
-def days(n = 12):
+def days(n = 12) -> list:
     now = datetime.now()
     time = now.time()
     update_currency_report_time = time.replace(hour=12, minute=15, second=0, microsecond=0)
@@ -25,7 +25,7 @@ def days(n = 12):
     days.reverse()
     return days
 
-def is_weekend(dateStr):
+def is_weekend(dateStr: str) -> bool:
     dateObj = datetime.strptime(dateStr, '%Y-%m-%d').date()
     return dateObj.weekday() >= 5
 

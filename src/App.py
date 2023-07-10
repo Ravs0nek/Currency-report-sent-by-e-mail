@@ -3,7 +3,7 @@ from SendingEmail import sending_email
 
 class app:
     
-    def use_app(self):
+    def use_app(self) -> None:
         workbook = ec()
         workbook.title("Last week's currency reports")
         workbook.currency_report('EUR', 3, 2)
