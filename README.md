@@ -7,6 +7,7 @@ Technologies used in the project:
  - Python e-mail sending
  - Creating excel file
  - GitHub Actions
+ - Secret values
 
 Api used in project:
  - data of currency rates: https://api.nbp.pl/
@@ -18,6 +19,11 @@ App structure:
  4. .github\workflows - folder with yml file (GitHub Actions file)
  5. CurrencyData - excel file with currency rates
 
+Excel file legend:
+ - green - rate is bigger than week ago
+ - white - rate is same as than week ago
+ - red - rate is smaller than week ago
+ 
 Authors:
  - Miłosz Stawiak
 
