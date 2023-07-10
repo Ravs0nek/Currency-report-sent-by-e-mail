@@ -9,8 +9,10 @@ def test_exchange_rate_api():
     exchange_rates = data[0]
     report_days = data[1]
     currency = data[2]
-    assert len(exchange_rates) == 5 and len(report_days) == 5 and currency == 'USD'
-
+    assert len(exchange_rates) == 8 or len(exchange_rates) == 9 or len(exchange_rates) == 10 \
+          and len(report_days) == 8 or len(report_days) == 9 or len(report_days) == 10 and currency == 'USD'
+    #depending on what day of the week it is
+    
 def test_week_exchange_rate():
     data = cd.week_exchange_rate(exchange_rates=cd.exchange_rate_api(first_day= days()[0], last_day= days()[-1], currency='USD'))
     exchange_rates = data[0]
@@ -20,3 +22,6 @@ def test_week_exchange_rate():
     print(today_date_function[:1])
     assert len(exchange_rates) == 7 and today_date[:1] == today_date_function[:1] or today_date[:2] == today_date_function[:2] and \
                             today_date[3:5] == today_date_function[3:5] or today_date[4:6] == today_date_function[4:6]
+    #depending on what day of the week it is
+
+    

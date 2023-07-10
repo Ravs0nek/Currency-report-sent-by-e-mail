@@ -4,7 +4,7 @@ from openpyxl.styles import Alignment, Font, Border, Side
 from openpyxl import Workbook
 from SecondaryFunctions import cell_colour, days
 
-class Workbook1:
+class ExcelFile:
     
     def __init__(self):
         self.workbook = Workbook()
@@ -26,8 +26,7 @@ class Workbook1:
         self.workbook.save(filename = "CurrencyData.xlsx")
 
     def currency_report(self, currency, starting_row, starting_column):
-        currency_data = cd.week_exchange_rate(exchange_rates=cd.exchange_rate_api(first_day= days()[0], 
-                                                                last_day= days()[-1], currency=currency))
+        currency_data = cd.week_exchange_rate(exchange_rates=cd.exchange_rate_api(currency=currency))
         rates, dates = currency_data[0], currency_data[1]
         basic_value = rates[0]
         self.sheet.merge_cells(start_row=starting_row, start_column=starting_column, 
